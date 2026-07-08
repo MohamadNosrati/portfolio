@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --background: #060816;
+  --foreground: #f8fafc;
+
+  --card: #111827;
+  --card-hover: #172033;
+
+  --border: #263248;
+
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+
+  --secondary: #22d3ee;
+
+  --muted: #94a3b8;
+
+  --success: #22c55e;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+
+  --color-muted: var(--muted);
+
+  --color-success: var(--success);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
