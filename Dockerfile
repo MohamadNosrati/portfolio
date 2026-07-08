@@ -5,17 +5,20 @@ RUN npm install -g pnpm
 
 WORKDIR /app
 
-# Copy only the files needed for dependency installation
+# Copy dependency files
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies with frozen lockfile (like npm ci)
+# Allow dependency install scripts (required for Next.js sharp)
+RUN pnpm config set ignore-scripts false
+
+# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy the rest of the source
+# Copy source code
 COPY . .
 
-# Build the project
+# Build Next.js app
 RUN pnpm run build
 
-# Use pnpm to start (or directly run node if you prefer)
+# Start application
 CMD ["pnpm", "start"]
