@@ -15,7 +15,7 @@ const navLinks = [
   },
   {
     title: "Experience",
-    href: "#experience",
+    href: "#experiences",
   },
   {
     title: "Contact",
@@ -37,8 +37,6 @@ export default function Navbar() {
   return (
     <header>
       <div className="mx-auto container max-sm:px-4 flex h-20 items-center justify-between">
-        {/* Logo */}
-
         <Link
           href="/"
           className="flex items-center gap-2 font-mono text-xl font-bold"
@@ -47,8 +45,6 @@ export default function Navbar() {
 
           <span>Mohamad Nosrati</span>
         </Link>
-
-        {/* Desktop Menu */}
 
         <nav className="hidden items-center gap-12 lg:flex">
           {navLinks.map((item) => (
@@ -65,19 +61,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Button */}
-
         <motion.a
           href="#contact"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           className="hidden rounded-lg bg-primary px-5 py-3 text-sm font-semibold lg:block"
         >
-          Let's Connect
+          {"Let's Connect"}
         </motion.a>
-
-        {/* Mobile Button */}
-
         <button
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           className="flex h-11 w-11 items-center justify-center lg:hidden"
@@ -174,7 +165,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="from-primary to-secondary mt-12 flex h-14 items-center justify-center rounded-lg bg-linear-to-r font-semibold"
               >
-                Let's Connect
+                {"Let's Connect"}
               </motion.a>
             </motion.div>
           </>

@@ -1,7 +1,11 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { FaEye } from "react-icons/fa";
 import { FaPhone, FaUserTie } from "react-icons/fa6";
+import { IoIosEyeOff } from "react-icons/io";
 
 interface ReferenceInfo {
   name: string;
@@ -16,8 +20,14 @@ interface ExperienceCardProps {
   startDate: string;
   endDate: string;
   description: string;
-  skills: string[];
+  isFreelance: boolean;
+  projects: {
+    label: string;
+    disable: boolean;
+    href?: string;
+  }[];
   reference: ReferenceInfo;
+  type: string;
 }
 
 const cardVariants: Variants = {
@@ -36,8 +46,9 @@ export default function ExperienceItem({
   startDate,
   endDate,
   description,
-  skills,
+  projects,
   reference,
+  type,
 }: ExperienceCardProps) {
   return (
     <motion.div
@@ -47,23 +58,30 @@ export default function ExperienceItem({
     >
       {/* Upper Content Box */}
       <div className="p-6 flex flex-col gap-4 flex-grow">
-        
         {/* Company Header Row */}
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full border border-border overflow-hidden bg-background flex-shrink-0 p-0.5">
-            <img 
-              src={companyLogo} 
-              alt={companyName} 
-              className="w-full h-full object-cover rounded-full" 
-            />
+        <div className="flex justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 relative rounded-full border border-border overflow-hidden bg-background flex-shrink-0 p-0.5">
+              {companyLogo ? (
+                <Image
+                  fill
+                  src={companyLogo}
+                  alt={companyName}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              ) : null}
+            </div>
+            <div className="flex flex-col min-w-0">
+              <h3 className="text-lg font-bold text-foreground truncate leading-snug">
+                {role}
+              </h3>
+              <span className="text-sm font-medium text-primary tracking-wide">
+                {companyName}
+              </span>
+            </div>
           </div>
-          <div className="flex flex-col min-w-0">
-            <h3 className="text-lg font-bold text-foreground truncate leading-snug">
-              {role}
-            </h3>
-            <span className="text-sm font-medium text-primary tracking-wide">
-              {companyName}
-            </span>
+          <div className="badge badge-secondary text-xs font-semibold px-2.5 py-2">
+            {type}
           </div>
         </div>
 
@@ -79,10 +97,16 @@ export default function ExperienceItem({
 
         {/* Skills Tag Area using DaisyUI Badges */}
         <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
-          {skills.map((skill, idx) => (
-            <div key={idx} className="badge badge-soft badge-primary text-xs font-semibold px-2.5 py-2">
-              {skill}
-            </div>
+          {projects?.map((project) => (
+            <Link
+              target="_blank"
+              key={project?.label}
+              href={project?.href || ""}
+              className="badge badge-soft badge-primary text-xs font-semibold px-2.5 py-2"
+            >
+              <span>{project.label}</span>
+              <span>{project?.disable ? <IoIosEyeOff /> : <FaEye />}</span>
+            </Link>
           ))}
         </div>
       </div>
@@ -91,16 +115,22 @@ export default function ExperienceItem({
       <div className="bg-muted/40 border-t border-border/50 p-4 mt-auto">
         <div className="flex items-center gap-2 mb-2 text-muted-foreground">
           <FaUserTie className="size-3.5 text-primary/70" />
-          <span className="text-xs font-bold uppercase tracking-wider">Manager Reference</span>
+          <span className="text-xs font-bold uppercase tracking-wider">
+            Manager Reference
+          </span>
         </div>
-        
+
         <div className="flex flex-col gap-1 bg-background/50 border border-border/40 rounded-xl p-3">
           <div className="flex justify-between items-baseline">
-            <span className="text-sm font-bold text-foreground">{reference.name}</span>
-            <span className="text-xs text-muted-foreground font-medium">{reference.position}</span>
+            <span className="text-sm font-bold text-foreground">
+              {reference.name}
+            </span>
+            <span className="text-xs text-muted-foreground font-medium">
+              {reference.position}
+            </span>
           </div>
-          
-          <a 
+
+          <a
             href={`tel:${reference.phone.replace(/\s+/g, "")}`}
             className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline w-fit mt-1 group/phone"
           >
@@ -109,7 +139,6 @@ export default function ExperienceItem({
           </a>
         </div>
       </div>
-
     </motion.div>
   );
 }

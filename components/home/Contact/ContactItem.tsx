@@ -41,8 +41,8 @@ export default function ContactItem({
       className="group relative bg-gradient-to-b from-card to-card/90 border border-border/60 p-5 rounded-2xl flex flex-col items-center text-center gap-3 transition-colors duration-300 hover:border-primary/40 shadow-sm cursor-pointer w-full pt-8"
     >
       {/* Top Center Circle Image Avatar */}
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 p-1 bg-background rounded-full border border-border group-hover:border-primary/30 transition-colors duration-300 shadow-md">
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-muted flex items-center justify-center">
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 p-1 bg-transparent rounded-full group-hover:border-primary/30 transition-colors duration-300 shadow-md">
+        <div className="w-12 h-12 rounded-full overflow-hidden bg-transparent flex items-center justify-center">
           <Image className="rounded-full" src={image} alt={label} fill />
         </div>
       </div>

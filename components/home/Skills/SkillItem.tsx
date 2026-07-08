@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { FaUser } from "react-icons/fa6";
 
 const itemVariants: Variants = {
   hidden: { y: 24, opacity: 0 },
@@ -16,7 +15,16 @@ const itemVariants: Variants = {
   },
 };
 
-export default function SkillItem() {
+interface IProps {
+  item: {
+    icon: string;
+    title: string;
+
+    branches: string[];
+  };
+}
+
+export default function SkillItem({ item }: IProps) {
   return (
     <motion.div
       variants={itemVariants}
@@ -30,29 +38,33 @@ export default function SkillItem() {
           "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
       // Swiper uses standard transitions; adding custom layout durations here prevents animation fighting
-      className="group relative bg-gradient-to-b from-background/40 to-card border border-border/60 p-6 rounded-2xl flex flex-col items-center gap-4 transition-[border-color,background-color] duration-300 hover:border-primary/40 shadow-sm select-none"
+      className="group w-full h-80 flex flex-1  relative bg-gradient-to-b from-background/40 to-card border border-border/60 p-6 rounded-2xl flex-col items-center gap-4 transition-[border-color,background-color] duration-300 hover:border-primary/40 shadow-sm select-none"
     >
       {/* Icon Wrapper - Animated Background Glow on Hover */}
       <div className="relative p-4 bg-background rounded-xl border border-border/50 text-muted-foreground group-hover:text-primary group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
-        <FaUser className="size-8" />
+        <Icon iconString={item?.icon} />
       </div>
 
       {/* Title */}
       <h3 className="text-lg font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
-        Database
+        {item?.title}
       </h3>
 
       {/* Tags/Skills Container - Enhanced UI Padding/Design */}
-      <div className="flex flex-wrap gap-1.5 justify-center w-full mt-2">
-        {[1, 2, 3, 4]?.map((tagIndex) => (
+      <div className="flex  flex-wrap gap-1.5 justify-center w-full mt-2">
+        {item?.branches?.map((branch) => (
           <span
-            key={tagIndex}
-            className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-primary/10 text-primary border border-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-200 cursor-default"
+            key={branch}
+            className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-primary/10 text-primary border border-primary/10 hover:bg-primary hover:text-foreground transition-all duration-200 cursor-default"
           >
-            Zustand
+            {branch}
           </span>
         ))}
       </div>
     </motion.div>
   );
 }
+
+const Icon = ({ iconString }: { iconString: string }) => (
+  <div dangerouslySetInnerHTML={{ __html: iconString }} />
+);
