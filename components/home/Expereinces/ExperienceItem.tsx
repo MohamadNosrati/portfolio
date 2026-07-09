@@ -1,11 +1,13 @@
 "use client";
 
+import clsx from "clsx";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaEye } from "react-icons/fa";
 import { FaPhone, FaUserTie } from "react-icons/fa6";
 import { IoIosEyeOff } from "react-icons/io";
+import { Fragment } from "react/jsx-runtime";
 
 interface ReferenceInfo {
   name: string;
@@ -59,37 +61,36 @@ export default function ExperienceItem({
       {/* Upper Content Box */}
       <div className="p-6 flex flex-col gap-4 flex-grow">
         {/* Company Header Row */}
-        <div className="flex justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 relative rounded-full border border-border overflow-hidden bg-background flex-shrink-0 p-0.5">
-              {companyLogo ? (
-                <Image
-                  fill
-                  src={companyLogo}
-                  alt={companyName}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              ) : null}
-            </div>
-            <div className="flex flex-col min-w-0">
-              <h3 className="text-lg font-bold text-foreground truncate leading-snug">
-                {role}
-              </h3>
-              <span className="text-sm font-medium text-primary tracking-wide">
-                {companyName}
-              </span>
-            </div>
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 relative rounded-full border border-border overflow-hidden bg-background flex-shrink-0 p-0.5">
+            {companyLogo ? (
+              <Image
+                fill
+                src={companyLogo}
+                alt={companyName}
+                className="w-full h-full object-cover rounded-full"
+              />
+            ) : null}
+          </div>
+          <div className="flex flex-col min-w-0">
+            <h3 className="text-lg font-bold text-foreground truncate leading-snug">
+              {role}
+            </h3>
+            <span className="text-sm font-medium text-primary tracking-wide">
+              {companyName}
+            </span>
+          </div>
+        </div>
+
+        {/* Date Duration Range Badge */}
+        <div className="flex gap-3">
+          <div className="badge badge-ghost text-xs font-semibold px-2.5 py-2">
+            {startDate} — {endDate}
           </div>
           <div className="badge badge-secondary text-xs font-semibold px-2.5 py-2">
             {type}
           </div>
         </div>
-
-        {/* Date Duration Range Badge */}
-        <div className="inline-flex self-start px-2.5 py-1 rounded-md bg-background text-muted-foreground font-semibold text-xs border border-border/50">
-          {startDate} — {endDate}
-        </div>
-
         {/* Brief Job Description */}
         <p className="text-sm text-muted-foreground leading-relaxed font-normal mt-1">
           {description}
@@ -98,15 +99,33 @@ export default function ExperienceItem({
         {/* Skills Tag Area using DaisyUI Badges */}
         <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
           {projects?.map((project) => (
-            <Link
-              target="_blank"
-              key={project?.label}
-              href={project?.href || ""}
-              className="badge badge-soft badge-primary text-xs font-semibold px-2.5 py-2"
-            >
-              <span>{project.label}</span>
-              <span>{project?.disable ? <IoIosEyeOff /> : <FaEye />}</span>
-            </Link>
+            <Fragment key={project?.label}>
+              {project?.disable ? (
+                <div
+                  className={clsx(
+                    "badge text-xs font-semibold px-2.5 py-2 cursor-not-allowed badge-ghost",
+                  )}
+                >
+                  <span>{project.label}</span>
+                  <span>{<FaEye />}</span>
+                </div>
+              ) : (
+                <Link
+                  target="_blank"
+                  key={project?.label}
+                  href={project?.href || ""}
+                  className={clsx(
+                    "badge badge-soft  text-xs font-semibold px-2.5 py-2",
+                    project?.disable
+                      ? "cursor-not-allowed badge-ghost"
+                      : "cursor-pointer badge-primary",
+                  )}
+                >
+                  <span>{project.label}</span>
+                  <span>{<FaEye />}</span>
+                </Link>
+              )}
+            </Fragment>
           ))}
         </div>
       </div>

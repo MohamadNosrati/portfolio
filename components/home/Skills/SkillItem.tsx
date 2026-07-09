@@ -38,7 +38,7 @@ export default function SkillItem({ item }: IProps) {
           "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
       // Swiper uses standard transitions; adding custom layout durations here prevents animation fighting
-      className="group w-full h-80 flex flex-1  relative bg-gradient-to-b from-background/40 to-card border border-border/60 p-6 rounded-2xl flex-col items-center gap-4 transition-[border-color,background-color] duration-300 hover:border-primary/40 shadow-sm select-none"
+      className="group w-full flex flex-1  relative bg-gradient-to-b from-background/40 to-card border border-border/60 p-6 rounded-2xl flex-col items-center gap-4 transition-[border-color,background-color] duration-300 hover:border-primary/40 shadow-sm select-none"
     >
       {/* Icon Wrapper - Animated Background Glow on Hover */}
       <div className="relative p-4 bg-background rounded-xl border border-border/50 text-muted-foreground group-hover:text-primary group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-300 shadow-sm">
@@ -46,7 +46,7 @@ export default function SkillItem({ item }: IProps) {
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
+      <h3 className="text-lg  font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
         {item?.title}
       </h3>
 

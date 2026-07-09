@@ -55,3 +55,23 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+/* 1. Ensure the wrapper allows flex items to stretch horizontally */
+.swiper-horizontal > .swiper-wrapper {
+  align-items: stretch !important;
+}
+
+/* 2. Break the forced 100% height on the slide and make it a flex container */
+.swiper-slide {
+  height: auto !important; /* Forces flexbox to dictate the height based on the tallest sibling */
+  display: flex !important;
+}
+
+/* 3. Make sure your actual experience card fills the newly stretched slide height */
+.swiper-slide > .experience-item-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between; /* Keeps footers/buttons perfectly aligned at the bottom */
+}

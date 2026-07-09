@@ -266,20 +266,24 @@ export default function Skills() {
         <Swiper
           loop
           autoplay={{
-            delay: 10000,
+            delay: 2000,
             pauseOnMouseEnter: true,
           }}
           breakpoints={{
-            1020: {
+            1280: {
               slidesPerView: 3.8,
               spaceBetween: 20,
             },
+            1020: {
+              slidesPerView: 3.2,
+              spaceBetween: 20,
+            },
             768: {
-              slidesPerView: 2.8,
+              slidesPerView: 2.4,
               spaceBetween: 16,
             },
             540: {
-              slidesPerView: 1.8,
+              slidesPerView: 1.6,
               spaceBetween: 12,
             },
             320: {
@@ -288,11 +292,11 @@ export default function Skills() {
               centeredSlides: true,
             },
           }}
-          className="w-full"
+          className="w-full flex !items-stretch"
           modules={[Autoplay]}
         >
           {data?.map((item) => (
-            <SwiperSlide className="py-8 flex  min-h-max" key={item?.title}>
+            <SwiperSlide className="py-8 flex" key={item?.title}>
               <SkillItem item={item} />
             </SwiperSlide>
           ))}

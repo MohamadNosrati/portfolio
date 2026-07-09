@@ -36,6 +36,26 @@ best practices.`,
         disable: false,
         href: "https://behtarino.com/",
       },
+      {
+        label: "Reval",
+        disable: true,
+        href: "",
+      },
+      {
+        label: "Sms-microFronted",
+        disable: true,
+        href: "",
+      },
+      {
+        label: "admin panel",
+        disable: true,
+        href: "",
+      },
+      {
+        label: "back office",
+        disable: true,
+        href: "",
+      },
     ],
     reference: {
       name: "Milad Afkhami",
@@ -134,9 +154,8 @@ Implemented email system, advanced relations, jobs, events,
 andlisteners for robust features`,
     projects: [
       {
-        label: "Sarooj",
-        disable: false,
-        href: "https://www.saroojcontractor.com/",
+        label: "I Cant Expose",
+        disable: true,
       },
     ],
     reference: {
