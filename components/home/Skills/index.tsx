@@ -238,19 +238,61 @@ export const data: SkillCategory[] = [
 
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-      <defs>
-        <linearGradient id="pkgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#C084FC" />
-          <stop offset="100%" stop-color="#8B5CF6" />
-        </linearGradient>
-      </defs>
-      <path d="M30 28 L50 22 L70 28 L50 34 Z" fill="none" stroke="url(#pkgGrad)" stroke-width="3" stroke-linejoin="round" />
-      <path d="M30 28 L30 52 L50 58 L50 34 Z" fill="none" stroke="url(#pkgGrad)" stroke-width="3" stroke-linejoin="round" />
-      <path d="M50 34 L50 58 L70 52 L70 28 Z" fill="none" stroke="url(#pkgGrad)" stroke-width="3" stroke-linejoin="round" />
-      <path d="M50 12 L50 22 M44 16 L50 22 L56 16" fill="none" stroke="url(#pkgGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-      <rect x="54" y="44" width="14" height="10" rx="2" fill="url(#pkgGrad)" opacity="0.8" />
-      <text x="57" y="51" font-family="monospace" font-size="8" font-weight="bold" fill="#fff">v1</text>
-    </svg>`,
+  <defs>
+    <linearGradient id="pkgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(-10, 0)">
+    <path d="M30 28 L50 22 L70 28 L50 34 Z"
+      fill="none"
+      stroke="url(#pkgGrad)"
+      stroke-width="3"
+      stroke-linejoin="round" />
+
+    <path d="M30 28 L30 52 L50 58 L50 34 Z"
+      fill="none"
+      stroke="url(#pkgGrad)"
+      stroke-width="3"
+      stroke-linejoin="round" />
+
+    <path d="M50 34 L50 58 L70 52 L70 28 Z"
+      fill="none"
+      stroke="url(#pkgGrad)"
+      stroke-width="3"
+      stroke-linejoin="round" />
+
+    <path d="M50 12 L50 22 M44 16 L50 22 L56 16"
+      fill="none"
+      stroke="url(#pkgGrad)"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round" />
+
+    <rect
+      x="54"
+      y="44"
+      width="14"
+      height="10"
+      rx="2"
+      fill="url(#pkgGrad)"
+      opacity="0.8"
+    />
+
+    <text
+      x="57"
+      y="51"
+      font-family="monospace"
+      font-size="8"
+      font-weight="bold"
+      fill="#fff"
+    >
+      v1
+    </text>
+  </g>
+</svg>`,
     title: "Package Managers",
     level: SkillLevel.EXPERT,
     description: "Managing dependencies and JavaScript project environments.",

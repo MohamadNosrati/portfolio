@@ -108,7 +108,7 @@ export default function SkillItem({ item }: IProps) {
         {/* Icon */}
         <div
           className={clsx(
-            "relative flex size-16 shrink-0 items-center justify-center rounded-2xl border bg-background shadow-sm transition-all duration-300",
+            "relative flex size-20 shrink-0 items-center justify-center rounded-2xl border bg-background shadow-sm transition-all duration-300",
             "border-border/50",
             "group-hover:scale-105",
             "group-hover:border-primary/30",
