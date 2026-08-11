@@ -29,7 +29,8 @@ const experiences = [
     projects: [
       {
         label: "student-assistant",
-        disable: true,
+        disable: false,
+        href: "https://cheestee.com/",
       },
     ],
     reference: {
