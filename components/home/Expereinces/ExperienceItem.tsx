@@ -4,9 +4,7 @@ import clsx from "clsx";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaEye } from "react-icons/fa";
-import { FaPhone, FaUserTie } from "react-icons/fa6";
-import { IoIosEyeOff } from "react-icons/io";
+import { FaEye, FaPhone, FaUserTie } from "react-icons/fa";
 import { Fragment } from "react/jsx-runtime";
 
 interface ReferenceInfo {
@@ -33,11 +31,19 @@ interface ExperienceCardProps {
 }
 
 const cardVariants: Variants = {
-  hidden: { y: 30, opacity: 0 },
+  hidden: {
+    y: 30,
+    opacity: 0,
+  },
+
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 90, damping: 16 },
+    transition: {
+      type: "spring",
+      stiffness: 90,
+      damping: 16,
+    },
   },
 };
 
@@ -52,77 +58,188 @@ export default function ExperienceItem({
   reference,
   type,
 }: ExperienceCardProps) {
+  const isCurrent = !endDate?.trim();
+
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ y: -6, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
-      className="flex flex-col h-full bg-card border border-border/60 rounded-2xl overflow-hidden shadow-sm justify-between transition-all duration-300 hover:border-primary/30"
+      whileHover={{
+        y: -6,
+        boxShadow: isCurrent
+          ? "0 24px 45px -15px rgb(16 185 129 / 0.22)"
+          : "0 20px 25px -5px rgb(0 0 0 / 0.1)",
+      }}
+      className={clsx(
+        "group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border shadow-sm transition-all duration-300",
+        isCurrent
+          ? [
+              "border-emerald-500/30",
+              "bg-gradient-to-br from-emerald-500/[0.06] via-card to-card",
+              "hover:border-emerald-500/50",
+            ]
+          : ["border-border/60", "bg-card", "hover:border-primary/30"],
+      )}
     >
-      {/* Upper Content Box */}
-      <div className="p-6 flex flex-col gap-4 flex-grow">
-        {/* Company Header Row */}
+      {/* ========================================================= */}
+      {/* Current Experience Accent */}
+      {/* ========================================================= */}
+
+      {isCurrent && (
+        <>
+          {/* Left Accent Line */}
+          <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-400" />
+
+          {/* Soft Glow */}
+          <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-emerald-500/10 blur-3xl transition-opacity duration-500 group-hover:bg-emerald-500/15" />
+
+          {/* Current Label */}
+          <div className="absolute right-4 top-4">
+            <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+
+                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+              </span>
+              Current
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ========================================================= */}
+      {/* Main Content */}
+      {/* ========================================================= */}
+
+      <div
+        className={clsx(
+          "relative flex flex-grow flex-col gap-4 p-6",
+          isCurrent && "pt-7",
+        )}
+      >
+        {/* Company Header */}
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 relative rounded-full border border-border overflow-hidden bg-background flex-shrink-0 p-0.5">
+          {/* Logo */}
+          <div
+            className={clsx(
+              "relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border bg-background p-0.5",
+              isCurrent
+                ? "border-emerald-500/30 shadow-[0_0_0_4px_rgb(16_185_129_/_0.06)]"
+                : "border-border",
+            )}
+          >
             {companyLogo ? (
               <Image
                 fill
                 src={companyLogo}
                 alt={companyName}
-                className="w-full h-full object-cover rounded-full"
+                className="h-full w-full rounded-full object-cover"
               />
             ) : null}
           </div>
-          <div className="flex flex-col min-w-0">
-            <h3 className="text-lg font-bold text-foreground truncate leading-snug">
+
+          {/* Company Information */}
+          <div className="flex min-w-0 flex-col">
+            <h3 className="truncate text-lg font-bold leading-snug text-foreground">
               {role}
             </h3>
-            <span className="text-sm font-medium text-primary tracking-wide">
+
+            <span
+              className={clsx(
+                "text-sm font-medium tracking-wide",
+                isCurrent
+                  ? "text-emerald-600 dark:text-emerald-400"
+                  : "text-primary",
+              )}
+            >
               {companyName}
             </span>
           </div>
         </div>
 
-        {/* Date Duration Range Badge */}
-        <div className="flex gap-3">
-          <div className="badge badge-ghost text-xs font-semibold px-2.5 py-2">
-            {startDate} — {endDate}
+        {/* ======================================================= */}
+        {/* Current Position Message */}
+        {/* ======================================================= */}
+
+        {isCurrent && (
+          <div className="flex items-center gap-2 rounded-xl border border-emerald-500/10 bg-emerald-500/[0.06] px-3 py-2">
+            <div className="flex size-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60" />
+
+                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+              </span>
+            </div>
+
+            <div className="flex flex-col">
+              <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+                Currently working here
+              </span>
+
+              <span className="text-[10px] text-emerald-700/60 dark:text-emerald-400/60">
+                Ongoing professional experience
+              </span>
+            </div>
           </div>
-          <div className="badge badge-secondary text-xs font-semibold px-2.5 py-2">
+        )}
+
+        {/* ======================================================= */}
+        {/* Date + Employment Type */}
+        {/* ======================================================= */}
+
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Date */}
+          <div
+            className={clsx(
+              "badge px-2.5 py-2 text-xs font-semibold",
+              isCurrent
+                ? "border border-emerald-500/15 bg-emerald-500/5 text-emerald-700 dark:text-emerald-400"
+                : "badge-ghost",
+            )}
+          >
+            {startDate} — {isCurrent ? "Present" : endDate}
+          </div>
+
+          {/* Type */}
+          <div className="badge badge-secondary px-2.5 py-2 text-xs font-semibold">
             {type}
           </div>
         </div>
-        {/* Brief Job Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed font-normal mt-1">
+
+        {/* ======================================================= */}
+        {/* Description */}
+        {/* ======================================================= */}
+
+        <p className="mt-1 text-sm font-normal leading-relaxed text-muted-foreground">
           {description}
         </p>
 
-        {/* Skills Tag Area using DaisyUI Badges */}
-        <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
+        {/* ======================================================= */}
+        {/* Projects */}
+        {/* ======================================================= */}
+
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
           {projects?.map((project) => (
-            <Fragment key={project?.label}>
-              {project?.disable ? (
-                <div
-                  className={clsx(
-                    "badge text-xs font-semibold px-2.5 py-2 cursor-not-allowed badge-ghost",
-                  )}
-                >
+            <Fragment key={project.label}>
+              {project.disable ? (
+                <div className="badge badge-ghost cursor-not-allowed gap-1.5 px-2.5 py-2 text-xs font-semibold">
                   <span>{project.label}</span>
-                  <span>{<FaEye />}</span>
+
+                  <FaEye className="size-3" />
                 </div>
               ) : (
                 <Link
                   target="_blank"
-                  key={project?.label}
-                  href={project?.href || ""}
+                  href={project.href || ""}
                   className={clsx(
-                    "badge badge-soft  text-xs font-semibold px-2.5 py-2",
-                    project?.disable
-                      ? "cursor-not-allowed badge-ghost"
-                      : "cursor-pointer badge-primary",
+                    "badge gap-1.5 px-2.5 py-2 text-xs font-semibold transition-all",
+                    isCurrent
+                      ? "border border-emerald-500/20 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/15 dark:text-emerald-400"
+                      : "badge-primary badge-soft",
                   )}
                 >
                   <span>{project.label}</span>
-                  <span>{<FaEye />}</span>
+
+                  <FaEye className="size-3" />
                 </Link>
               )}
             </Fragment>
@@ -130,30 +247,48 @@ export default function ExperienceItem({
         </div>
       </div>
 
-      {/* Footer Layer: Dedicated Reference Box */}
-      <div className="bg-muted/40 border-t border-border/50 p-4 mt-auto">
-        <div className="flex items-center gap-2 mb-2 text-muted-foreground">
-          <FaUserTie className="size-3.5 text-primary/70" />
+      {/* ========================================================= */}
+      {/* Reference Footer */}
+      {/* ========================================================= */}
+
+      <div
+        className={clsx(
+          "relative mt-auto border-t p-4",
+          isCurrent
+            ? "border-emerald-500/10 bg-emerald-500/[0.025]"
+            : "border-border/50 bg-muted/40",
+        )}
+      >
+        <div className="mb-2 flex items-center gap-2 text-muted-foreground">
+          <FaUserTie
+            className={clsx(
+              "size-3.5",
+              isCurrent ? "text-emerald-500/80" : "text-primary/70",
+            )}
+          />
+
           <span className="text-xs font-bold uppercase tracking-wider">
             Manager Reference
           </span>
         </div>
 
-        <div className="flex flex-col gap-1 bg-background/50 border border-border/40 rounded-xl p-3">
-          <div className="flex justify-between items-baseline">
-            <span className="text-sm font-bold text-foreground">
+        <div className="flex flex-col gap-1 rounded-xl border border-border/40 bg-background/50 p-3">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="truncate text-sm font-bold text-foreground">
               {reference.name}
             </span>
-            <span className="text-xs text-muted-foreground font-medium">
+
+            <span className="text-right text-xs font-medium text-muted-foreground">
               {reference.position}
             </span>
           </div>
 
           <a
             href={`tel:${reference.phone.replace(/\s+/g, "")}`}
-            className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline w-fit mt-1 group/phone"
+            className="group/phone mt-1 flex w-fit items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
           >
             <FaPhone className="size-2.5 transition-transform group-hover/phone:animate-pulse" />
+
             {reference.phone}
           </a>
         </div>

@@ -6,6 +6,7 @@ import ExperienceItem from "./ExperienceItem";
 import MobtakeranImage from "@/public/images/mobtakeran.jpg";
 import ideKavanImage from "@/public/images/ideKavan.png";
 import saroojImage from "@/public/images/sarooj.png";
+import MotemayezImage from "@/public/images/motemayez.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,6 +17,27 @@ const containerVariants = {
 };
 
 const experiences = [
+  {
+    companyLogo: MotemayezImage?.src,
+    companyName: "Motemayez",
+    role: "Full Stack Developer",
+    startDate: "June 2026",
+    type: "FullTime",
+    isFreelance: true,
+    endDate: "",
+    description: `Working with React.js on the frontend, Express.js as a backend data service, and PostgreSQL for data management. Also developing and maintaining an API Gateway that connects the frontend with backend services through a scalable multi-layer architecture.`,
+    projects: [
+      {
+        label: "student-assistant",
+        disable: true,
+      },
+    ],
+    reference: {
+      name: "Mohsen Khojaste",
+      position: "Teck Lead",
+      phone: "+989914144192",
+    },
+  },
   {
     companyLogo: ideKavanImage?.src,
     companyName: "ّIde Kavan",
@@ -47,12 +69,12 @@ best practices.`,
         href: "",
       },
       {
-        label: "admin panel",
+        label: "Admin-anel",
         disable: true,
         href: "",
       },
       {
-        label: "back office",
+        label: "Back-office",
         disable: true,
         href: "",
       },
