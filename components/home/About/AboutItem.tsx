@@ -9,11 +9,18 @@ interface AboutItemProps {
 }
 
 const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: {
+    y: 20,
+    opacity: 0,
+  },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 14 },
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 14,
+    },
   },
 };
 
@@ -21,24 +28,118 @@ export default function AboutItem({ label, value }: AboutItemProps) {
   return (
     <motion.div
       variants={itemVariants}
-      whileHover={{ x: 4 }}
-      className="flex flex-col gap-1.5 h-fit p-4 bg-background/40 border border-border/50 rounded-xl hover:border-primary/30 transition-colors duration-300 group"
+      whileHover={{
+        y: -4,
+        scale: 1.015,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+      }}
+      className="
+        group relative overflow-hidden
+        rounded-2xl
+        border border-border/60
+        bg-gradient-to-br from-background/80 via-background/50 to-primary/[0.04]
+        p-5
+        shadow-sm
+        transition-all duration-300
+        hover:border-primary/30
+        hover:shadow-lg hover:shadow-primary/5
+      "
     >
-      {/* Label Row */}
-      <div className="flex gap-2 items-center text-muted-foreground/80 group-hover:text-primary transition-colors duration-300">
-        <FaChevronRight className="size-3 text-primary/70 transition-transform duration-300 group-hover:translate-x-0.5" />
-        <span className="text-xs font-semibold uppercase tracking-wider">
+      {/* Hover glow */}
+      <div
+        className="
+          pointer-events-none absolute -right-10 -top-10
+          h-24 w-24 rounded-full
+          bg-primary/10 blur-2xl
+          opacity-0 transition-opacity duration-500
+          group-hover:opacity-100
+        "
+      />
+
+      {/* Top accent */}
+      <div
+        className="
+          absolute left-0 top-0 h-0.5 w-0
+          bg-gradient-to-r from-primary to-primary/20
+          transition-all duration-500
+          group-hover:w-full
+        "
+      />
+
+      {/* Label */}
+      <div className="relative flex items-center gap-2.5">
+        <div
+          className="
+            flex size-7 shrink-0 items-center justify-center
+            rounded-lg
+            bg-primary/10
+            text-primary
+            transition-all duration-300
+            group-hover:bg-primary
+            group-hover:text-primary-foreground
+          "
+        >
+          <FaChevronRight
+            className="
+              size-2.5
+              transition-transform duration-300
+              group-hover:translate-x-0.5
+            "
+          />
+        </div>
+
+        <span
+          className="
+            text-[11px] font-semibold
+            uppercase tracking-[0.14em]
+            text-muted-foreground
+            transition-colors duration-300
+            group-hover:text-primary
+          "
+        >
           {label}
         </span>
       </div>
 
-      {/* Value Row */}
-      <div className="flex items-center gap-3">
-        <div className="w-1.5 h-6 bg-primary/20 rounded-full group-hover:bg-primary transition-colors duration-300" />
-        <span className="font-bold text-base md:text-lg text-foreground tracking-tight">
+      {/* Value */}
+      <div className="relative mt-4 flex items-center gap-3">
+        <div
+          className="
+            h-8 w-1 rounded-full
+            bg-primary/20
+            transition-all duration-300
+            group-hover:h-10
+            group-hover:bg-primary
+          "
+        />
+
+        <span
+          className="
+            text-base font-bold
+            tracking-tight text-foreground
+            md:text-lg
+          "
+        >
           {value}
         </span>
       </div>
+
+      {/* Bottom decoration */}
+      <div
+        className="
+          absolute bottom-0 right-0
+          h-px w-20
+          bg-gradient-to-l from-primary/20 to-transparent
+          opacity-50
+          transition-all duration-300
+          group-hover:w-32
+          group-hover:opacity-100
+        "
+      />
     </motion.div>
   );
 }
