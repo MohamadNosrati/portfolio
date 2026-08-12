@@ -91,18 +91,6 @@ export default function ExperienceItem({
 
           {/* Soft Glow */}
           <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-emerald-500/10 blur-3xl transition-opacity duration-500 group-hover:bg-emerald-500/15" />
-
-          {/* Current Label */}
-          <div className="absolute right-4 top-4">
-            <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-              <span className="relative flex size-1.5">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-
-                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
-              </span>
-              Current
-            </div>
-          </div>
         </>
       )}
 
@@ -160,33 +148,11 @@ export default function ExperienceItem({
         {/* Current Position Message */}
         {/* ======================================================= */}
 
-        {isCurrent && (
-          <div className="flex items-center gap-2 rounded-xl border border-emerald-500/10 bg-emerald-500/[0.06] px-3 py-2">
-            <div className="flex size-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60" />
-
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-              </span>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
-                Currently working here
-              </span>
-
-              <span className="text-[10px] text-emerald-700/60 dark:text-emerald-400/60">
-                Ongoing professional experience
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* ======================================================= */}
         {/* Date + Employment Type */}
         {/* ======================================================= */}
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           {/* Date */}
           <div
             className={clsx(
@@ -200,7 +166,11 @@ export default function ExperienceItem({
           </div>
 
           {/* Type */}
-          <div className="badge badge-secondary px-2.5 py-2 text-xs font-semibold">
+          <div
+            className={clsx(
+              "badge px-2.5 py-2 text-xs font-semibold border border-pink-500/15 bg-pink-500/5 text-pink-700 dark:text-pink-400",
+            )}
+          >
             {type}
           </div>
         </div>
@@ -209,7 +179,7 @@ export default function ExperienceItem({
         {/* Description */}
         {/* ======================================================= */}
 
-        <p className="mt-1 text-sm font-normal leading-relaxed text-muted-foreground">
+        <p className="mt-1 text-sm font-normal text-justify leading-relaxed text-muted-foreground">
           {description}
         </p>
 

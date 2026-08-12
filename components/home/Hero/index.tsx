@@ -53,7 +53,7 @@ export default function Hero() {
               >
                 <Link
                   href="#contact"
-                  className="from-primary to-secondary inline-flex h-14 items-center justify-center gap-3 rounded-xl bg-linear-to-r sm:px-8 px-4 font-semibold text-white shadow-lg shadow-indigo-500/30"
+                  className="from-primary to-pink-500 inline-flex h-14 items-center justify-center gap-3 rounded-xl bg-linear-to-r sm:px-8 px-4 font-semibold text-white shadow-lg shadow-indigo-500/30"
                 >
                   {"Let's Connect"}
                   <FaArrowRight className="size-5" />
