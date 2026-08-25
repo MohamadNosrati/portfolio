@@ -192,7 +192,6 @@ andlisteners for robust features`,
 export default function Experiences() {
   return (
     <section id="experiences" className="container mx-auto max-sm:px-4 py-8">
-      {/* Header matching your existing styles */}
       <div className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-primary/10 rounded-lg text-primary">
           <FaBriefcase className="size-5" />
@@ -202,7 +201,6 @@ export default function Experiences() {
         </h2>
       </div>
 
-      {/* Grid: Exactly 3 columns on large screens */}
       <motion.div
         variants={containerVariants}
         initial="hidden"

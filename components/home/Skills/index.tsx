@@ -367,7 +367,7 @@ export default function Skills() {
           Skills
         </h2>
       </div>
-      <div className="w-full bg-card px-6 md:px-10 rounded-lg">
+      <div className="w-full bg-card rounded-lg">
         <Swiper
           loop
           autoplay={{

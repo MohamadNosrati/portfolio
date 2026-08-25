@@ -19,15 +19,7 @@ const nextConfig = {
       },
     },
   },
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: backendUrl.protocol.replace(":", ""), // "http" or "https"
-  //       hostname: backendUrl.hostname,
-  //       port: backendUrl.port || "",
-  //     },
-  //   ],
-  // },
+  images: { remotePatterns: [{ hostname: "picsum.photos" }] },
 
   // Webpack fallback (used for production builds)
   webpack(config) {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Providers } from "@/providers";
 
 import "../public/globals.css";
 
@@ -98,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`
             ${inter.variable}
@@ -106,7 +107,7 @@ export default function RootLayout({
             antialiased
                   `}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

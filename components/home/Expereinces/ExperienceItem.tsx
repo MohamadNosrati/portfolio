@@ -80,23 +80,13 @@ export default function ExperienceItem({
           : ["border-border/60", "bg-card", "hover:border-primary/30"],
       )}
     >
-      {/* ========================================================= */}
-      {/* Current Experience Accent */}
-      {/* ========================================================= */}
-
       {isCurrent && (
         <>
-          {/* Left Accent Line */}
           <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-400" />
 
-          {/* Soft Glow */}
           <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-emerald-500/10 blur-3xl transition-opacity duration-500 group-hover:bg-emerald-500/15" />
         </>
       )}
-
-      {/* ========================================================= */}
-      {/* Main Content */}
-      {/* ========================================================= */}
 
       <div
         className={clsx(
@@ -104,9 +94,7 @@ export default function ExperienceItem({
           isCurrent && "pt-7",
         )}
       >
-        {/* Company Header */}
         <div className="flex items-center gap-4">
-          {/* Logo */}
           <div
             className={clsx(
               "relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border bg-background p-0.5",
@@ -125,7 +113,6 @@ export default function ExperienceItem({
             ) : null}
           </div>
 
-          {/* Company Information */}
           <div className="flex min-w-0 flex-col">
             <h3 className="truncate text-lg font-bold leading-snug text-foreground">
               {role}
@@ -144,16 +131,7 @@ export default function ExperienceItem({
           </div>
         </div>
 
-        {/* ======================================================= */}
-        {/* Current Position Message */}
-        {/* ======================================================= */}
-
-        {/* ======================================================= */}
-        {/* Date + Employment Type */}
-        {/* ======================================================= */}
-
         <div className="flex flex-wrap items-center justify-between gap-2">
-          {/* Date */}
           <div
             className={clsx(
               "badge px-2.5 py-2 text-xs font-semibold",
@@ -165,7 +143,6 @@ export default function ExperienceItem({
             {startDate} — {isCurrent ? "Present" : endDate}
           </div>
 
-          {/* Type */}
           <div
             className={clsx(
               "badge px-2.5 py-2 text-xs font-semibold border border-pink-500/15 bg-pink-500/5 text-pink-700 dark:text-pink-400",
@@ -175,17 +152,9 @@ export default function ExperienceItem({
           </div>
         </div>
 
-        {/* ======================================================= */}
-        {/* Description */}
-        {/* ======================================================= */}
-
-        <p className="mt-1 text-sm font-normal text-justify leading-relaxed text-muted-foreground">
+        <p className="mt-1 text-sm font-normal text-justify leading-relaxed text-muted">
           {description}
         </p>
-
-        {/* ======================================================= */}
-        {/* Projects */}
-        {/* ======================================================= */}
 
         <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
           {projects?.map((project) => (
@@ -217,19 +186,15 @@ export default function ExperienceItem({
         </div>
       </div>
 
-      {/* ========================================================= */}
-      {/* Reference Footer */}
-      {/* ========================================================= */}
-
       <div
         className={clsx(
           "relative mt-auto border-t p-4",
           isCurrent
             ? "border-emerald-500/10 bg-emerald-500/[0.025]"
-            : "border-border/50 bg-muted/40",
+            : "border-border/50 bg-muted/10",
         )}
       >
-        <div className="mb-2 flex items-center gap-2 text-muted-foreground">
+        <div className="mb-2 flex items-center gap-2 text-muted">
           <FaUserTie
             className={clsx(
               "size-3.5",
@@ -248,7 +213,7 @@ export default function ExperienceItem({
               {reference.name}
             </span>
 
-            <span className="text-right text-xs font-medium text-muted-foreground">
+            <span className="text-right text-xs font-medium text-muted">
               {reference.position}
             </span>
           </div>

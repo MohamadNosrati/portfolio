@@ -23,43 +23,43 @@ const contactData = [
   {
     label: "Email",
     value: "mohamadnosratidev@gmail.com",
-    href: "mailto:mohamadnosratidev@gmail.com", // ✅ Must start with 'mailto:'
+    href: "mailto:mohamadnosratidev@gmail.com",
     image: GmailImage?.src,
   },
   {
     label: "Telegram",
     value: "@MohamadNosratidev",
-    href: "https://t.me/MohamadNosratidev", // ✅ Correct (username is case-sensitive)
+    href: "https://t.me/MohamadNosratidev",
     image: TelegramImage?.src,
   },
   {
     label: "LinkedIn",
     value: "In/nosrati",
-    href: "https://linkedin.com/in/MohamadNos", // ✅ Fixed: replaced 'yourusername' with 'nosrati'
+    href: "https://linkedin.com/in/MohamadNos",
     image: LinkedinImage?.src,
   },
   {
     label: "GitHub",
     value: "github/nosrati",
-    href: "https://github.com/MohamadNosrati", // ✅ Fixed: replaced 'yourusername' with 'nosrati'
+    href: "https://github.com/MohamadNosrati",
     image: GitHubImage?.src,
   },
   {
     label: "Phone",
     value: "+98 9120958305",
-    href: "tel:+989120958305", // ✅ Correct (spaces and dashes removed for 'tel:')
+    href: "tel:+989120958305",
     image: PhoneCall?.src,
   },
   {
     label: "Instagram",
     value: "@mnosrati_dev",
-    href: "https://instagram.com/mohamad_nst_", // ✅ Fixed: was pointing to Twitter, and removed the '@' from URL
+    href: "https://instagram.com/mohamad_nst_",
     image: InstagramImage?.src,
   },
   {
     label: "Whatsapp",
-    value: "@mnosrati_dev", // Note: WhatsApp uses phone numbers, not usernames, for direct chat
-    href: "https://wa.me/989120958305", // ✅ Fixed: removed '+', spaces, and special chars per WhatsApp rules
+    value: "@mnosrati_dev",
+    href: "https://wa.me/989120958305",
     image: WhasappImage?.src,
   },
 ];
@@ -67,7 +67,6 @@ const contactData = [
 export default function ContactSection() {
   return (
     <section id="contact" className="container mx-auto max-sm:px-4 py-8">
-      {/* Header */}
       <div className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-primary/10 rounded-lg text-primary">
           <FaPaperPlane className="size-5" />
@@ -77,7 +76,6 @@ export default function ContactSection() {
         </h2>
       </div>
 
-      {/* Grid: 6 columns on lg screen sizes (1/6 width each) */}
       <motion.div
         variants={containerVariants}
         initial="hidden"

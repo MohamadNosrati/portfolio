@@ -28,7 +28,7 @@ export default function ContactItem({
   return (
     <motion.a
       href={href}
-      target="_blank" // Opens up social channels in a new tab
+      target="_blank"
       rel="noopener noreferrer"
       variants={cardVariants}
       whileHover={{
@@ -40,19 +40,21 @@ export default function ContactItem({
       whileTap={{ scale: 0.98 }}
       className="group relative bg-gradient-to-b from-card to-card/90 border border-border/60 p-5 rounded-2xl flex flex-col items-center text-center gap-3 transition-colors duration-300 hover:border-primary/40 shadow-sm cursor-pointer w-full pt-8"
     >
-      {/* Top Center Circle Image Avatar */}
       <div className="absolute -top-6 left-1/2 -translate-x-1/2 p-1 bg-transparent rounded-full group-hover:border-primary/30 transition-colors duration-300 shadow-md">
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-transparent flex items-center justify-center">
-          <Image className="rounded-full" src={image} alt={label} fill />
+        <div className="relative w-12 h-12 rounded-full overflow-hidden bg-transparent flex items-center justify-center">
+          <Image
+            className="rounded-full object-cover"
+            src={image}
+            alt={label}
+            fill
+          />
         </div>
       </div>
 
-      {/* Label (Platform/Method name) */}
-      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors duration-300 mt-2">
+      <span className="text-xs font-bold uppercase tracking-wider text-muted group-hover:text-primary transition-colors duration-300 mt-2">
         {label}
       </span>
 
-      {/* Value (Username / ID / Handle) */}
       <span className="text-sm font-semibold text-foreground tracking-tight max-w-full truncate px-1">
         {value}
       </span>
