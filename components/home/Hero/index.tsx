@@ -66,7 +66,7 @@ export default function Hero() {
               >
                 <Link
                   download={true}
-                  href="/files/mohamad-nst-resume.pdf"
+                  href="/files/Mohamad-nst-resume.pdf"
                   className="border-border hover:border-primary inline-flex h-14 items-center justify-center gap-3 rounded-xl border bg-white/5 sm:px-8 px-4 font-semibold transition-colors"
                 >
                   Resume

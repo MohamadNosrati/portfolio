@@ -97,3 +97,22 @@ body {
 
   justify-content: space-between; /* Keeps footers/buttons perfectly aligned at the bottom */
 }
+
+
+.swiper-fade-right {
+  overflow-x: clip;
+  overflow-y: visible;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 90%,
+    transparent 100%
+  );
+}

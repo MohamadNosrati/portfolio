@@ -367,9 +367,12 @@ export default function Skills() {
           Skills
         </h2>
       </div>
-      <div className="w-full bg-card rounded-lg">
+
+      <div className="w-full bg-card rounded-lg pr-4">
         <Swiper
           loop
+          slidesOffsetBefore={16}
+          slidesOffsetAfter={16}
           autoplay={{
             delay: 2000,
             pauseOnMouseEnter: true,
@@ -397,7 +400,7 @@ export default function Skills() {
               centeredSlides: true,
             },
           }}
-          className="w-full flex !items-stretch"
+          className="w-full flex !items-stretch swiper-fade-right"
           modules={[Autoplay]}
         >
           {data?.map((item) => (

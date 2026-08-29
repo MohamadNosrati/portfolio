@@ -43,9 +43,9 @@ const experiences = [
     companyLogo: ideKavanImage?.src,
     companyName: "ّIde Kavan",
     role: "Front-End Developer",
-    startDate: "Mar 2024",
+    startDate: "November 2025",
     type: "FullTime",
-    endDate: "Present",
+    endDate: "March 2026",
     isFreelance: false,
     description: `Delivered technical training in AI fluency (prompt engineering, MCP
 servers, RAG, n8n).
