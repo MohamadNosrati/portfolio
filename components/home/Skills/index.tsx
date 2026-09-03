@@ -357,9 +357,12 @@ export const data: SkillCategory[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="container mx-auto max-sm:px-4">
+    <section
+      id="skills"
+      className="container mx-auto 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10lg:px-8"
+    >
       {/* Section Header */}
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-center gap-3">
         <div className="p-2 bg-primary/10 rounded-2xl text-primary">
           <FaUser className="size-5" />
         </div>
@@ -368,48 +371,45 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div className="w-full bg-card rounded-lg pr-4">
-        <Swiper
-          loop
-          slidesOffsetBefore={16}
-          slidesOffsetAfter={16}
-          autoplay={{
-            delay: 2000,
-            pauseOnMouseEnter: true,
-          }}
-          breakpoints={{
-            1280: {
-              slidesPerView: 3.8,
-              spaceBetween: 20,
-            },
-            1020: {
-              slidesPerView: 3.2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2.4,
-              spaceBetween: 16,
-            },
-            540: {
-              slidesPerView: 1.6,
-              spaceBetween: 12,
-            },
-            320: {
-              slidesPerView: 1.2,
-              spaceBetween: 8,
-              centeredSlides: true,
-            },
-          }}
-          className="w-full flex !items-stretch swiper-fade-right"
-          modules={[Autoplay]}
-        >
-          {data?.map((item) => (
-            <SwiperSlide className="py-8 flex" key={item?.title}>
-              <SkillItem item={item} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      {/* <div className="w-full bg-card rounded-lg pr-4"> */}
+      <Swiper
+        loop
+        autoplay={{
+          delay: 2000,
+          pauseOnMouseEnter: true,
+        }}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3.8,
+            spaceBetween: 20,
+          },
+          1020: {
+            slidesPerView: 3.2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2.4,
+            spaceBetween: 16,
+          },
+          540: {
+            slidesPerView: 1.6,
+            spaceBetween: 12,
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 8,
+          },
+        }}
+        className="w-full flex !items-stretch swiper-fade-right"
+        modules={[Autoplay]}
+      >
+        {data?.map((item) => (
+          <SwiperSlide className="py-8 flex" key={item?.title}>
+            <SkillItem item={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {/* </div> */}
     </section>
   );
 }

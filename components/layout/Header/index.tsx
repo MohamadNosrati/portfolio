@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-background text-foreground relative z-50">
-      <div className="mx-auto container max-sm:px-4 flex h-20 items-center justify-between">
+      <div className="mx-auto container 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10lg:px-8 flex h-20 items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-2 font-mono text-xl font-bold text-foreground"

@@ -10,7 +10,7 @@ export default function Footer() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3 }}
-        className="flex container max-sm:px-4 py-4 items-center mx-auto justify-between max-sm:flex-col gap-6 text-sm"
+        className="flex container 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10lg:px-8 py-4 items-center mx-auto justify-between max-sm:flex-col gap-6 text-sm"
       >
         <div className="">
           <p className="text-muted ">

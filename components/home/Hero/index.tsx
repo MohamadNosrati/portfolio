@@ -14,7 +14,7 @@ export default function Hero() {
 
       <div className="bg-primary/20 absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full blur-[140px]" />
 
-      <div className="relative container max-sm:px-4  mx-auto">
+      <div className="relative container 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10 lg:px-8  mx-auto">
         <div className="grid items-center lg:gap-20 sm:gap-12 gap-8 lg:grid-cols-[1fr_360px]">
           {/* Left */}
 
@@ -46,14 +46,15 @@ export default function Hero() {
               user experience, clean architecture and beautiful interfaces.
             </p>
 
-            <div className="mt-12 flex gap-5">
+            <div className="mt-12 flex 2xs:gap-5 gap-3 max-2xs:flex-col">
               <motion.div
+                className="max-2xs:w-full"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
               >
                 <Link
                   href="#contact"
-                  className="from-primary to-pink-500 inline-flex h-14 items-center justify-center gap-3 rounded-xl bg-linear-to-r sm:px-8 px-4 font-semibold text-white shadow-lg shadow-indigo-500/30"
+                  className="from-primary to-pink-500 inline-flex h-14 items-center justify-center max-2xs:w-full gap-3 rounded-xl bg-linear-to-r sm:px-8 px-4 font-semibold text-white shadow-lg shadow-indigo-500/30"
                 >
                   {"Let's Connect"}
                   <FaArrowRight className="size-5" />
@@ -61,13 +62,14 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
+                className="max-2xs:w-full"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
               >
                 <Link
                   download={true}
                   href="/files/Mohamad-nst-resume.pdf"
-                  className="border-border hover:border-primary inline-flex h-14 items-center justify-center gap-3 rounded-xl border bg-white/5 sm:px-8 px-4 font-semibold transition-colors"
+                  className="border-border max-2xs:w-full hover:border-primary inline-flex h-14 items-center justify-center gap-3 rounded-xl border bg-white/5 sm:px-8 px-4 font-semibold transition-colors"
                 >
                   Resume
                   <FaCloudDownloadAlt className="size-5" />

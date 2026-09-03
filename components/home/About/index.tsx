@@ -38,7 +38,10 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="container mx-auto py-10 max-sm:px-4">
+    <section
+      id="about"
+      className="container mx-auto py-10 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10lg:px-8"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -69,7 +72,7 @@ export default function About() {
             </div>
 
             <div className="mt-7">
-              <p className="max-w-2xl text-base font-normal leading-8 text-muted md:text-lg">
+              <p className="max-w-2xl max-sm:text-justify sm:text-base max-sm:text-sm font-normal leading-8 text-muted md:text-lg">
                 Front-End Developer with 4+ years of experience in React and
                 Next.js, building scalable, high-performance web applications.
                 Strong in modern frontend architecture, SSR, SSG, state

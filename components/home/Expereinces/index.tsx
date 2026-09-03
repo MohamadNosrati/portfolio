@@ -191,7 +191,10 @@ andlisteners for robust features`,
 
 export default function Experiences() {
   return (
-    <section id="experiences" className="container mx-auto max-sm:px-4 py-8">
+    <section
+      id="experiences"
+      className="container mx-auto 2xs:px-4 px-2 sm:px-6 md:px-8 lg:px-10lg:px-8 py-8"
+    >
       <div className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-primary/10 rounded-lg text-primary">
           <FaBriefcase className="size-5" />
