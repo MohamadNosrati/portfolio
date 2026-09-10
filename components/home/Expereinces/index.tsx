@@ -35,7 +35,7 @@ const experiences = [
     ],
     reference: {
       name: "Mohsen Khojaste",
-      position: "Teck Lead",
+      position: "Tech Lead",
       phone: "+989914144192",
     },
   },
@@ -183,7 +183,7 @@ andlisteners for robust features`,
     ],
     reference: {
       name: "Turaj ArminPour",
-      position: "Teck Lead",
+      position: "Tech Lead",
       phone: "+989128167840",
     },
   },

@@ -35,7 +35,7 @@ const contactData = [
   {
     label: "LinkedIn",
     value: "In/nosrati",
-    href: "https://linkedin.com/in/MohamadNos",
+    href: "https://www.linkedin.com/in/mohamad-nosrati-a7392926a/",
     image: LinkedinImage?.src,
   },
   {
@@ -52,13 +52,13 @@ const contactData = [
   },
   {
     label: "Instagram",
-    value: "@mnosrati_dev",
+    value: "mohamad_nst_",
     href: "https://instagram.com/mohamad_nst_",
     image: InstagramImage?.src,
   },
   {
     label: "Whatsapp",
-    value: "@mnosrati_dev",
+    value: "Mohamad Nst",
     href: "https://wa.me/989120958305",
     image: WhasappImage?.src,
   },
